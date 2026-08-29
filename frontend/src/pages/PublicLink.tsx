@@ -70,6 +70,7 @@ export default function PublicLink() {
   }, []);
 
   useEffect(() => {
+    document.title = 'WeatherNow — Live Local Weather Forecast & Radar';
     if (!token) return;
 
     // Validate link exists first
