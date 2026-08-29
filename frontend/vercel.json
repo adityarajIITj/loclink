@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://RENDER_BACKEND_URL/api/:path*"
+      "destination": "https://loclink-api.onrender.com/api/:path*"
     }
   ]
 }

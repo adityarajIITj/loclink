@@ -45,18 +45,14 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# CORS — allow frontend dev server
+# CORS — allow frontend origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.FRONTEND_URL],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Trusted hosts (dev)
-if settings.ENVIRONMENT == "production":
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=["yourdomain.com"])
 
 # Include routers
 app.include_router(auth.router)
